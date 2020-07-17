@@ -8,10 +8,11 @@ use PoP\Posts\TypeResolvers\PostTypeResolver;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\Tags\FieldResolvers\AbstractCustomPostQueryableFieldResolver;
+use PoP\PostTags\FieldResolvers\PostTagAPIContractImplementationTrait;
 
 class PostQueryableFieldResolver extends AbstractCustomPostQueryableFieldResolver
 {
-    use TagAPIContractImplementationTrait;
+    use PostTagAPIContractImplementationTrait;
 
     public static function getClassesToAttachTo(): array
     {
