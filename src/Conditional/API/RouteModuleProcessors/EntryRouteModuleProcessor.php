@@ -48,6 +48,17 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
         //         ],
         //     ];
         // }
+        $routemodules = array(
+            POP_POSTS_ROUTE_POSTS => [\PoP_Taxonomies_Module_Processor_FieldDataloads::class, \PoP_Taxonomies_Posts_Module_Processor_FieldDataloads::MODULE_DATALOAD_RELATIONALFIELDS_TAGPOSTLIST],
+        );
+        foreach ($routemodules as $route => $module) {
+            $ret[TagRouteNatures::TAG][$route][] = [
+                'module' => $module,
+                'conditions' => [
+                    'scheme' => POP_SCHEME_API,
+                ],
+            ];
+        }
         return $ret;
     }
 }
