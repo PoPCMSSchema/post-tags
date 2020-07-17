@@ -19,6 +19,7 @@
     "prefer-stable": true,
     "require": {
         "php" : "~7.1",
+        "getpop/posts": "dev-master",
         "getpop/tags": "dev-master",
         "getpop/migrate-post-tags": "dev-master"
     },
