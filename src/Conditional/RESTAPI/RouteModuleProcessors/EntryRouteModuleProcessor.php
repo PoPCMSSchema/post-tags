@@ -95,27 +95,6 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
                 ],
             ];
         }
-        // Commented until creating route POP_CUSTOMPOSTS_ROUTE_CUSTOMPOSTS
-        // $routemodules = array(
-        //     POP_CUSTOMPOSTS_ROUTE_CUSTOMPOSTS => [
-        //         \PoP_PostTags_Module_Processor_FieldDataloads::class,
-        //         \PoP_PostTags_Posts_Module_Processor_FieldDataloads::MODULE_DATALOAD_RELATIONALFIELDS_TAGPOSTLIST,
-        //         [
-        //             'fields' => isset($vars['query']) ?
-        //                 $vars['query'] :
-        //                 EntryRouteModuleProcessorHelpers::getRESTFields()
-        //             ]
-        //         ],
-        // );
-        // foreach ($routemodules as $route => $module) {
-        //     $ret[TagRouteNatures::TAG][$route][] = [
-        //         'module' => $module,
-        //         'conditions' => [
-        //             'scheme' => POP_SCHEME_API,
-        //             'datastructure' => RESTDataStructureFormatter::getName(),
-        //         ],
-        //     ];
-        // }
         $routemodules = array(
             POP_POSTS_ROUTE_POSTS => [
                 \PoP_Taxonomies_Posts_Module_Processor_FieldDataloads::class,
