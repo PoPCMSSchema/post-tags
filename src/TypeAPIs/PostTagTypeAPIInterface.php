@@ -18,4 +18,11 @@ interface PostTagTypeAPIInterface extends TagTypeAPIInterface
      * @return boolean
      */
     public function isInstanceOfPostTagType($object): bool;
+
+    /**
+     * The taxonomy name representing a post tag ("post_tag")
+     *
+     * @return string
+     */
+    public function getPostTagTaxonomyName(): string;
 }

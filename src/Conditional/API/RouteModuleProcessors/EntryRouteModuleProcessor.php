@@ -4,19 +4,22 @@ declare(strict_types=1);
 
 namespace PoP\PostTags\Conditional\API\RouteModuleProcessors;
 
-use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
 use PoP\Routing\RouteNatures;
+use PoP\PostTags\Facades\PostTagTypeAPIFacade;
 use PoP\Tags\Routing\RouteNatures as TagRouteNatures;
+use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
 {
     public function getModulesVarsPropertiesByNature()
     {
         $ret = array();
+        $postTagTypeAPI = PostTagTypeAPIFacade::getInstance();
         $ret[TagRouteNatures::TAG][] = [
             'module' => [\PoP_PostTags_Module_Processor_FieldDataloads::class, \PoP_PostTags_Module_Processor_FieldDataloads::MODULE_DATALOAD_RELATIONALFIELDS_TAG],
             'conditions' => [
                 'scheme' => POP_SCHEME_API,
+                'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
             ],
         ];
         return $ret;
@@ -25,6 +28,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
     public function getModulesVarsPropertiesByNatureAndRoute()
     {
         $ret = array();
+        $postTagTypeAPI = PostTagTypeAPIFacade::getInstance();
         $routemodules = array(
             POP_POSTTAGS_ROUTE_POSTTAGS => [\PoP_PostTags_Module_Processor_FieldDataloads::class, \PoP_PostTags_Module_Processor_FieldDataloads::MODULE_DATALOAD_RELATIONALFIELDS_TAGLIST],
         );
@@ -56,6 +60,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
                 'module' => $module,
                 'conditions' => [
                     'scheme' => POP_SCHEME_API,
+                    'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
                 ],
             ];
         }

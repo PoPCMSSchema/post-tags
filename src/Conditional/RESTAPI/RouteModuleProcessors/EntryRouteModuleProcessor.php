@@ -8,6 +8,7 @@ use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
 use PoP\ComponentModel\State\ApplicationState;
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\API\Facades\FieldQueryConvertorFacade;
+use PoP\PostTags\Facades\PostTagTypeAPIFacade;
 use PoP\Routing\RouteNatures;
 use PoP\Tags\Routing\RouteNatures as TagRouteNatures;
 use PoP\RESTAPI\DataStructureFormatters\RESTDataStructureFormatter;
@@ -46,6 +47,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
     {
         $ret = array();
         $vars = ApplicationState::getVars();
+        $postTagTypeAPI = PostTagTypeAPIFacade::getInstance();
         $ret[TagRouteNatures::TAG][] = [
             'module' => [
                 \PoP_PostTags_Module_Processor_FieldDataloads::class,
@@ -59,6 +61,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
             'conditions' => [
                 'scheme' => POP_SCHEME_API,
                 'datastructure' => RESTDataStructureFormatter::getName(),
+                'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
             ],
         ];
 
@@ -69,6 +72,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
     {
         $ret = array();
         $vars = ApplicationState::getVars();
+        $postTagTypeAPI = PostTagTypeAPIFacade::getInstance();
         $routemodules = array(
             POP_POSTTAGS_ROUTE_POSTTAGS => [
                 \PoP_PostTags_Module_Processor_FieldDataloads::class,
@@ -127,6 +131,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
                 'conditions' => [
                     'scheme' => POP_SCHEME_API,
                     'datastructure' => RESTDataStructureFormatter::getName(),
+                    'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
                 ],
             ];
         }
