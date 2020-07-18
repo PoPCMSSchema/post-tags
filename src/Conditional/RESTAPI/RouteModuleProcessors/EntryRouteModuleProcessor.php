@@ -118,7 +118,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
         // }
         $routemodules = array(
             POP_POSTS_ROUTE_POSTS => [
-                \PoP_Taxonomies_Module_Processor_FieldDataloads::class,
+                \PoP_Taxonomies_Posts_Module_Processor_FieldDataloads::class,
                 \PoP_Taxonomies_Posts_Module_Processor_FieldDataloads::MODULE_DATALOAD_RELATIONALFIELDS_TAGPOSTLIST,
                 [
                     'fields' => isset($vars['query']) ?
