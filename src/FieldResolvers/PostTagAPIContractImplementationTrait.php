@@ -8,7 +8,7 @@ use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
 
 trait PostTagAPIContractImplementationTrait
 {
-    protected function getTypeAPI()
+    protected function getTypeAPI(): \PoP\Tags\FunctionAPI
     {
         $cmstagsapi = \PoP\PostTags\FunctionAPIFactory::getInstance();
         return $cmstagsapi;
@@ -17,11 +17,5 @@ trait PostTagAPIContractImplementationTrait
     protected function getTypeResolverClass(): string
     {
         return PostTagTypeResolver::class;
-    }
-
-    protected function getObjectPropertyAPI()
-    {
-        $cmstagsresolver = \PoP\Tags\ObjectPropertyResolverFactory::getInstance();
-        return $cmstagsresolver;
     }
 }
