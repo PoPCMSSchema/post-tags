@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\FieldResolvers;
+namespace PoP\PostTags\ComponentContracts;
 
 use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
 
-trait PostTagAPIContractImplementationTrait
+trait PostTagAPISatisfiedContractTrait
 {
     protected function getTypeAPI(): \PoP\Tags\FunctionAPI
     {

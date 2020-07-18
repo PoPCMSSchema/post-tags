@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PoP\PostTags\TypeResolvers;
 
-use PoP\PostTags\FieldResolvers\PostTagAPIContractImplementationTrait;
+use PoP\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\PostTags\TypeDataLoaders\PostTagTypeDataLoader;
 use PoP\Tags\TypeResolvers\AbstractTagTypeResolver;
 
 class PostTagTypeResolver extends AbstractTagTypeResolver
 {
-    use PostTagAPIContractImplementationTrait;
+    use PostTagAPISatisfiedContractTrait;
 
     public const NAME = 'PostTag';
 

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PoP\PostTags\TypeDataLoaders;
 
-use PoP\PostTags\FieldResolvers\PostTagAPIContractImplementationTrait;
+use PoP\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
 use PoP\Tags\TypeDataLoaders\AbstractTagTypeDataLoader;
 
 class PostTagTypeDataLoader extends AbstractTagTypeDataLoader
 {
-    use PostTagAPIContractImplementationTrait;
+    use PostTagAPISatisfiedContractTrait;
 
     public function getFilterDataloadingModule(): ?array
     {

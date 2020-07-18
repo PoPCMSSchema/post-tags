@@ -6,10 +6,11 @@ namespace PoP\PostTags\FieldResolvers;
 
 use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
 use PoP\Tags\FieldResolvers\AbstractCustomPostListTagFieldResolver;
+use PoP\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
 
 class CustomPostListPostTagFieldResolver extends AbstractCustomPostListTagFieldResolver
 {
-    use PostTagAPIContractImplementationTrait;
+    use PostTagAPISatisfiedContractTrait;
 
     public static function getClassesToAttachTo(): array
     {
