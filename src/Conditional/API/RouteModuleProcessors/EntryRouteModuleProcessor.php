@@ -19,7 +19,9 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
             'module' => [\PoP_PostTags_Module_Processor_FieldDataloads::class, \PoP_PostTags_Module_Processor_FieldDataloads::MODULE_DATALOAD_RELATIONALFIELDS_TAG],
             'conditions' => [
                 'scheme' => POP_SCHEME_API,
-                'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                'routing-state' => [
+                    'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                ],
             ],
         ];
         return $ret;
@@ -60,7 +62,9 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
                 'module' => $module,
                 'conditions' => [
                     'scheme' => POP_SCHEME_API,
-                    'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                    'routing-state' => [
+                        'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                    ],
                 ],
             ];
         }

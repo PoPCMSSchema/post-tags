@@ -61,7 +61,9 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
             'conditions' => [
                 'scheme' => POP_SCHEME_API,
                 'datastructure' => RESTDataStructureFormatter::getName(),
-                'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                'routing-state' => [
+                    'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                ],
             ],
         ];
 
@@ -131,7 +133,9 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
                 'conditions' => [
                     'scheme' => POP_SCHEME_API,
                     'datastructure' => RESTDataStructureFormatter::getName(),
-                    'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                    'routing-state' => [
+                        'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
+                    ],
                 ],
             ];
         }
