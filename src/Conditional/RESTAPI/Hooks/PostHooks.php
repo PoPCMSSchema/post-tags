@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\Conditional\RESTAPI\Hooks;
+namespace PoPSchema\PostTags\Conditional\RESTAPI\Hooks;
 
 use PoP\Engine\Hooks\AbstractHookSet;
-use PoP\Posts\Conditional\RESTAPI\RouteModuleProcessorHelpers\EntryRouteModuleProcessorHelpers;
+use PoPSchema\Posts\Conditional\RESTAPI\RouteModuleProcessorHelpers\EntryRouteModuleProcessorHelpers;
 
 class PostHooks extends AbstractHookSet
 {

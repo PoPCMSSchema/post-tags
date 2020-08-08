@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\FieldResolvers;
+namespace PoPSchema\PostTags\FieldResolvers;
 
-use PoP\Posts\TypeResolvers\PostTypeResolver;
+use PoPSchema\Posts\TypeResolvers\PostTypeResolver;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\Tags\FieldResolvers\AbstractCustomPostQueryableFieldResolver;
-use PoP\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
+use PoPSchema\Tags\FieldResolvers\AbstractCustomPostQueryableFieldResolver;
+use PoPSchema\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
 
 class PostQueryableFieldResolver extends AbstractCustomPostQueryableFieldResolver
 {

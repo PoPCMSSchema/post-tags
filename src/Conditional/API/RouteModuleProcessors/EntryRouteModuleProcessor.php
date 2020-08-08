@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\Conditional\API\RouteModuleProcessors;
+namespace PoPSchema\PostTags\Conditional\API\RouteModuleProcessors;
 
 use PoP\Routing\RouteNatures;
-use PoP\PostTags\Facades\PostTagTypeAPIFacade;
-use PoP\Tags\Routing\RouteNatures as TagRouteNatures;
+use PoPSchema\PostTags\Facades\PostTagTypeAPIFacade;
+use PoPSchema\Tags\Routing\RouteNatures as TagRouteNatures;
 use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor

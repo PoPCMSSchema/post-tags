@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags;
+namespace PoPSchema\PostTags;
 
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
-use PoP\PostTags\Config\ServiceConfiguration;
+use PoPSchema\PostTags\Config\ServiceConfiguration;
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
 
 /**
@@ -21,8 +21,8 @@ class Component extends AbstractComponent
     public static function getDependedComponentClasses(): array
     {
         return [
-            \PoP\Posts\Component::class,
-            \PoP\Tags\Component::class,
+            \PoPSchema\Posts\Component::class,
+            \PoPSchema\Tags\Component::class,
         ];
     }
 
@@ -62,7 +62,7 @@ class Component extends AbstractComponent
         ServiceConfiguration::initialize();
 
         if (!in_array(\PoP\RESTAPI\Component::class, $skipSchemaComponentClasses)) {
-            \PoP\PostTags\Conditional\RESTAPI\ConditionalComponent::initialize(
+            \PoPSchema\PostTags\Conditional\RESTAPI\ConditionalComponent::initialize(
                 $configuration,
                 $skipSchema
             );
@@ -84,7 +84,7 @@ class Component extends AbstractComponent
 
         // If $skipSchema for `Condition` is `true`, then services are not registered
         if (!empty(ContainerBuilderUtils::getServiceClassesUnderNamespace(__NAMESPACE__ . '\\Conditional\\RESTAPI\\Hooks'))) {
-            \PoP\PostTags\Conditional\RESTAPI\ConditionalComponent::beforeBoot();
+            \PoPSchema\PostTags\Conditional\RESTAPI\ConditionalComponent::beforeBoot();
         }
     }
 }

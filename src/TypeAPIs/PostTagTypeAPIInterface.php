@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\TypeAPIs;
+namespace PoPSchema\PostTags\TypeAPIs;
 
-use PoP\Tags\TypeAPIs\TagTypeAPIInterface;
+use PoPSchema\Tags\TypeAPIs\TagTypeAPIInterface;
 
 /**
  * Methods to interact with the Type, to be implemented by the underlying CMS

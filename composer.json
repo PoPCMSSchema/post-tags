@@ -1,5 +1,5 @@
 {
-    "name": "getpop/post-tags",
+    "name": "pop-schema/post-tags",
     "type": "library",
     "description": "Adds support for post tags",
     "keywords": [
@@ -19,9 +19,9 @@
     "prefer-stable": true,
     "require": {
         "php": "~7.2",
-        "getpop/posts": "dev-master",
-        "getpop/tags": "dev-master",
-        "getpop/migrate-post-tags": "dev-master"
+        "pop-schema/posts": "dev-master",
+        "pop-schema/tags": "dev-master",
+        "pop-schema/migrate-post-tags": "dev-master"
     },
     "require-dev": {
         "getpop/api": "dev-master",
@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PoP\\PostTags\\": "src"
+            "PoPSchema\\PostTags\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PoP\\PostTags\\": "tests"
+            "PoPSchema\\PostTags\\": "tests"
         }
     },
     "scripts": {

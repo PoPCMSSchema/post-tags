@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\FieldResolvers;
+namespace PoPSchema\PostTags\FieldResolvers;
 
-use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
-use PoP\Tags\FieldResolvers\AbstractTagFieldResolver;
-use PoP\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
+use PoPSchema\PostTags\TypeResolvers\PostTagTypeResolver;
+use PoPSchema\Tags\FieldResolvers\AbstractTagFieldResolver;
+use PoPSchema\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
 
 class PostTagFieldResolver extends AbstractTagFieldResolver
 {

@@ -17,7 +17,7 @@ Adds support for post tags
 Via Composer
 
 ``` bash
-composer require getpop/post-tags
+composer require pop-schema/post-tags
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Initialize the component:
 
 ``` php
 \PoP\Root\ComponentLoader::initializeComponents([
-    \PoP\PostTags\Component::class,
+    \PoPSchema\PostTags\Component::class,
 ]);
 ```
 
@@ -75,17 +75,17 @@ If you discover any security related issues, please email leo@getpop.org instead
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/getpop/post-tags.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/pop-schema/post-tags.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/getpop/post-tags/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/getpop/post-tags.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/getpop/post-tags.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/getpop/post-tags.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/pop-schema/post-tags/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/pop-schema/post-tags.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/pop-schema/post-tags.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/pop-schema/post-tags.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/getpop/post-tags
-[link-travis]: https://travis-ci.org/getpop/post-tags
-[link-scrutinizer]: https://scrutinizer-ci.com/g/getpop/post-tags/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/getpop/post-tags
-[link-downloads]: https://packagist.org/packages/getpop/post-tags
+[link-packagist]: https://packagist.org/packages/pop-schema/post-tags
+[link-travis]: https://travis-ci.org/pop-schema/post-tags
+[link-scrutinizer]: https://scrutinizer-ci.com/g/pop-schema/post-tags/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/pop-schema/post-tags
+[link-downloads]: https://packagist.org/packages/pop-schema/post-tags
 [link-author]: https://github.com/leoloso
 [link-contributors]: ../../contributors

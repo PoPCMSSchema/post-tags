@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\Facades;
+namespace PoPSchema\PostTags\Facades;
 
-use PoP\PostTags\TypeAPIs\PostTagTypeAPIInterface;
+use PoPSchema\PostTags\TypeAPIs\PostTagTypeAPIInterface;
 use PoP\Root\Container\ContainerBuilderFactory;
 
 class PostTagTypeAPIFacade

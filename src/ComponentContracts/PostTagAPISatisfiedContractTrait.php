@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\ComponentContracts;
+namespace PoPSchema\PostTags\ComponentContracts;
 
-use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
+use PoPSchema\PostTags\TypeResolvers\PostTagTypeResolver;
 
 trait PostTagAPISatisfiedContractTrait
 {
-    protected function getTypeAPI(): \PoP\Tags\FunctionAPI
+    protected function getTypeAPI(): \PoPSchema\Tags\FunctionAPI
     {
-        $cmstagsapi = \PoP\PostTags\FunctionAPIFactory::getInstance();
+        $cmstagsapi = \PoPSchema\PostTags\FunctionAPIFactory::getInstance();
         return $cmstagsapi;
     }
 

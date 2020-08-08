@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\FieldResolvers;
+namespace PoPSchema\PostTags\FieldResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\Posts\FieldResolvers\AbstractPostFieldResolver;
-use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
+use PoPSchema\Posts\FieldResolvers\AbstractPostFieldResolver;
+use PoPSchema\PostTags\TypeResolvers\PostTagTypeResolver;
 
 class PostTagListFieldResolver extends AbstractPostFieldResolver
 {

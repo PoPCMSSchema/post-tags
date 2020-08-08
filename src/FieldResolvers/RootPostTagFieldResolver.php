@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\FieldResolvers;
+namespace PoPSchema\PostTags\FieldResolvers;
 
-use PoP\Tags\ComponentConfiguration;
-use PoP\PostTags\TypeResolvers\PostTagTypeResolver;
+use PoPSchema\Tags\ComponentConfiguration;
+use PoPSchema\PostTags\TypeResolvers\PostTagTypeResolver;
 use PoP\Engine\TypeResolvers\RootTypeResolver;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\Schema\TypeCastingHelpers;
@@ -110,7 +110,7 @@ class RootPostTagFieldResolver extends AbstractQueryableFieldResolver
 
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
-        $cmstagsapi = \PoP\PostTags\FunctionAPIFactory::getInstance();
+        $cmstagsapi = \PoPSchema\PostTags\FunctionAPIFactory::getInstance();
         switch ($fieldName) {
             case 'postTag':
                 $query = [

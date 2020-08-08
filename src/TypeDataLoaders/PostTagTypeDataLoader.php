@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\TypeDataLoaders;
+namespace PoPSchema\PostTags\TypeDataLoaders;
 
-use PoP\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
-use PoP\Tags\TypeDataLoaders\AbstractTagTypeDataLoader;
+use PoPSchema\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
+use PoPSchema\Tags\TypeDataLoaders\AbstractTagTypeDataLoader;
 
 class PostTagTypeDataLoader extends AbstractTagTypeDataLoader
 {

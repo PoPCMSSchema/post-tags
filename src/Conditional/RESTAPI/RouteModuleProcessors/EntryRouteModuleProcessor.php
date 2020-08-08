@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\Conditional\RESTAPI\RouteModuleProcessors;
+namespace PoPSchema\PostTags\Conditional\RESTAPI\RouteModuleProcessors;
 
 use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
 use PoP\ComponentModel\State\ApplicationState;
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\API\Facades\FieldQueryConvertorFacade;
-use PoP\PostTags\Facades\PostTagTypeAPIFacade;
+use PoPSchema\PostTags\Facades\PostTagTypeAPIFacade;
 use PoP\Routing\RouteNatures;
-use PoP\Tags\Routing\RouteNatures as TagRouteNatures;
+use PoPSchema\Tags\Routing\RouteNatures as TagRouteNatures;
 use PoP\RESTAPI\DataStructureFormatters\RESTDataStructureFormatter;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\PostTags\Config;
+namespace PoPSchema\PostTags\Config;
 
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
 use PoP\Root\Component\PHPServiceConfigurationTrait;
@@ -18,14 +18,14 @@ class ServiceConfiguration
         if (class_exists('\PoP\API\Component') && \PoP\API\Component::isEnabled()) {
             ContainerBuilderUtils::injectServicesIntoService(
                 'route_module_processor_manager',
-                'PoP\\PostTags\\Conditional\\API\\RouteModuleProcessors',
+                'PoPSchema\\PostTags\\Conditional\\API\\RouteModuleProcessors',
                 'add'
             );
         }
         if (class_exists('\PoP\RESTAPI\Component') && \PoP\RESTAPI\Component::isEnabled()) {
             ContainerBuilderUtils::injectServicesIntoService(
                 'route_module_processor_manager',
-                'PoP\\PostTags\\Conditional\\RESTAPI\\RouteModuleProcessors',
+                'PoPSchema\\PostTags\\Conditional\\RESTAPI\\RouteModuleProcessors',
                 'add'
             );
         }
