@@ -12,6 +12,7 @@ use PoP\ComponentModel\Schema\TypeCastingHelpers;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\AbstractQueryableFieldResolver;
+use PoPSchema\SchemaCommons\DataLoading\ReturnTypes;
 
 class RootPostTagFieldResolver extends AbstractQueryableFieldResolver
 {
@@ -117,7 +118,7 @@ class RootPostTagFieldResolver extends AbstractQueryableFieldResolver
                     'include' => [$fieldArgs['id']],
                 ];
                 $options = [
-                    'return-type' => \POP_RETURNTYPE_IDS,
+                    'return-type' => ReturnTypes::IDS,
                 ];
                 if ($tags = $cmstagsapi->getTags($query, $options)) {
                     return $tags[0];
@@ -128,7 +129,7 @@ class RootPostTagFieldResolver extends AbstractQueryableFieldResolver
                     'limit' => ComponentConfiguration::getTagListDefaultLimit(),
                 ];
                 $options = [
-                    'return-type' => \POP_RETURNTYPE_IDS,
+                    'return-type' => ReturnTypes::IDS,
                 ];
                 $this->addFilterDataloadQueryArgs($options, $typeResolver, $fieldName, $fieldArgs);
                 return $cmstagsapi->getTags($query, $options);
