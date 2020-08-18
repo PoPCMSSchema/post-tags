@@ -12,6 +12,7 @@ use PoPSchema\PostTags\Facades\PostTagTypeAPIFacade;
 use PoP\Routing\RouteNatures;
 use PoPSchema\Tags\Routing\RouteNatures as TagRouteNatures;
 use PoP\RESTAPI\DataStructureFormatters\RESTDataStructureFormatter;
+use PoP\API\Response\Schemes as APISchemes;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
 {
@@ -59,7 +60,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
                 ]
             ],
             'conditions' => [
-                'scheme' => POP_SCHEME_API,
+                'scheme' => APISchemes::API,
                 'datastructure' => RESTDataStructureFormatter::getName(),
                 'routing-state' => [
                     'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
@@ -90,7 +91,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
             $ret[RouteNatures::STANDARD][$route][] = [
                 'module' => $module,
                 'conditions' => [
-                    'scheme' => POP_SCHEME_API,
+                    'scheme' => APISchemes::API,
                     'datastructure' => RESTDataStructureFormatter::getName(),
                 ],
             ];
@@ -110,7 +111,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
             $ret[TagRouteNatures::TAG][$route][] = [
                 'module' => $module,
                 'conditions' => [
-                    'scheme' => POP_SCHEME_API,
+                    'scheme' => APISchemes::API,
                     'datastructure' => RESTDataStructureFormatter::getName(),
                     'routing-state' => [
                         'taxonomy-name' => $postTagTypeAPI->getPostTagTaxonomyName(),
