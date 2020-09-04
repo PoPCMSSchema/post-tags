@@ -11,6 +11,10 @@ class PostTagTypeAPIFacade
 {
     public static function getInstance(): PostTagTypeAPIInterface
     {
-        return ContainerBuilderFactory::getInstance()->get('posttag_type_api');
+        /**
+         * @var PostTagTypeAPIInterface
+         */
+        $service = ContainerBuilderFactory::getInstance()->get('posttag_type_api');
+        return $service;
     }
 }
