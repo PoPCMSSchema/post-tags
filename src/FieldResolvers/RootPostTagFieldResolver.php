@@ -156,7 +156,7 @@ class RootPostTagFieldResolver extends AbstractQueryableFieldResolver
         return parent::resolveValue($typeResolver, $resultItem, $fieldName, $fieldArgs, $variables, $expressions, $options);
     }
 
-    public function resolveFieldTypeResolverClass(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
+    public function resolveFieldTypeResolverClass(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         switch ($fieldName) {
             case 'postTag':
@@ -164,6 +164,6 @@ class RootPostTagFieldResolver extends AbstractQueryableFieldResolver
                 return PostTagTypeResolver::class;
         }
 
-        return parent::resolveFieldTypeResolverClass($typeResolver, $fieldName, $fieldArgs);
+        return parent::resolveFieldTypeResolverClass($typeResolver, $fieldName);
     }
 }
