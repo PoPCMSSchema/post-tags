@@ -59,8 +59,8 @@ class Component extends AbstractComponent
         bool $skipSchema = false,
         array $skipSchemaComponentClasses = []
     ): void {
-        parent::initializeContainerServices($configuration, $skipSchema, $skipSchemaComponentClasses);
         ComponentConfiguration::setConfiguration($configuration);
+        self::initServices(dirname(__DIR__));
         self::initSchemaServices(dirname(__DIR__), $skipSchema);
         if (class_exists('\PoP\API\Component') && \PoP\API\Component::isEnabled()) {
             self::initServices(dirname(__DIR__), '/Conditional/API');
