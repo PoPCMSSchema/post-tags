@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\PostTags\Conditional\API\RouteModuleProcessors;
+namespace PoPSchema\PostTags\ConditionalOnComponent\API\RouteModuleProcessors;
 
 use PoP\API\Response\Schemes as APISchemes;
 use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
