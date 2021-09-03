@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\PostTags\TypeResolvers;
+namespace PoPSchema\PostTags\TypeResolvers\Object;
 
 use PoPSchema\PostTags\ComponentContracts\PostTagAPISatisfiedContractTrait;
 use PoPSchema\PostTags\TypeDataLoaders\PostTagTypeDataLoader;
-use PoPSchema\Tags\TypeResolvers\AbstractTagTypeResolver;
+use PoPSchema\Tags\TypeResolvers\Object\AbstractTagTypeResolver;
 
 class PostTagTypeResolver extends AbstractTagTypeResolver
 {
