@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PoPSchema\PostTags\FieldResolvers\ObjectType;
 
-use Symfony\Contracts\Service\Attribute\Required;
 use PoP\ComponentModel\FieldResolvers\ObjectType\AbstractQueryableObjectTypeFieldResolver;
 use PoP\ComponentModel\FilterInput\FilterInputHelper;
 use PoP\ComponentModel\Schema\SchemaTypeModifiers;
@@ -22,6 +21,7 @@ use PoPSchema\SchemaCommons\ModuleProcessors\CommonFilterInputContainerModulePro
 use PoPSchema\SchemaCommons\ModuleProcessors\FormInputs\CommonFilterInputModuleProcessor;
 use PoPSchema\SchemaCommons\Resolvers\WithLimitFieldArgResolverTrait;
 use PoPSchema\Tags\ComponentConfiguration;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class RootPostTagObjectTypeFieldResolver extends AbstractQueryableObjectTypeFieldResolver
 {
@@ -71,11 +71,11 @@ class RootPostTagObjectTypeFieldResolver extends AbstractQueryableObjectTypeFiel
             case 'postTags':
                 return $this->postTagObjectTypeResolver;
         }
-        $types = [
+        return match ($fieldName) {
             'postTagCount' => $this->intScalarTypeResolver,
             'postTagNames' => $this->stringScalarTypeResolver,
-        ];
-        return $types[$fieldName] ?? parent::getFieldTypeResolver($objectTypeResolver, $fieldName);
+            default => parent::getFieldTypeResolver($objectTypeResolver, $fieldName),
+        };
     }
 
     public function getSchemaFieldTypeModifiers(ObjectTypeResolverInterface $objectTypeResolver, string $fieldName): ?int
@@ -93,14 +93,14 @@ class RootPostTagObjectTypeFieldResolver extends AbstractQueryableObjectTypeFiel
 
     public function getSchemaFieldDescription(ObjectTypeResolverInterface $objectTypeResolver, string $fieldName): ?string
     {
-        $descriptions = [
+        return match ($fieldName) {
             'postTag' => $this->translationAPI->__('Post tag with a specific ID', 'pop-post-tags'),
             'postTagBySlug' => $this->translationAPI->__('Post tag with a specific slug', 'pop-post-tags'),
             'postTags' => $this->translationAPI->__('Post tags', 'pop-post-tags'),
             'postTagCount' => $this->translationAPI->__('Number of post tags', 'pop-post-tags'),
             'postTagNames' => $this->translationAPI->__('Names of the post tags', 'pop-post-tags'),
-        ];
-        return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($objectTypeResolver, $fieldName);
+            default => parent::getSchemaFieldDescription($objectTypeResolver, $fieldName),
+        };
     }
 
     public function getFieldFilterInputContainerModule(ObjectTypeResolverInterface $objectTypeResolver, string $fieldName): ?array
