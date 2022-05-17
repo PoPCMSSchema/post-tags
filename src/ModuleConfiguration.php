@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PoPCMSSchema\PostTags;
 
-use PoP\Root\Component\AbstractComponentConfiguration;
+use PoP\Root\Module\AbstractModuleConfiguration;
 
-class ComponentConfiguration extends AbstractComponentConfiguration
+class ModuleConfiguration extends AbstractModuleConfiguration
 {
     // public function getPostTagListDefaultLimit(): ?int
     // {
