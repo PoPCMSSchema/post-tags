@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoPCMSSchema\PostTags\ConditionalOnModule\RESTAPI\RouteModuleProcessors;
+namespace PoPCMSSchema\PostTags\ConditionalOnModule\API\ComponentRoutingProcessors;
 
 use PoP\Root\App;
 use PoPAPI\API\Response\Schemes as APISchemes;
-use PoPAPI\RESTAPI\RouteModuleProcessors\AbstractRESTEntryRouteModuleProcessor;
+use PoP\ComponentRouting\AbstractEntryComponentRoutingProcessor;
 use PoP\Root\Routing\RequestNature;
 use PoPCMSSchema\Posts\Module as PostsModule;
 use PoPCMSSchema\Posts\ModuleConfiguration as PostsModuleConfiguration;
@@ -17,7 +17,7 @@ use PoPCMSSchema\PostTags\ConditionalOnModule\API\ModuleProcessors\TagPostFieldD
 use PoPCMSSchema\PostTags\TypeAPIs\PostTagTypeAPIInterface;
 use PoPCMSSchema\Tags\Routing\RequestNature as TagRequestNature;
 
-class EntryRouteModuleProcessor extends AbstractRESTEntryRouteModuleProcessor
+class EntryComponentRoutingProcessor extends AbstractEntryComponentRoutingProcessor
 {
     private ?PostTagTypeAPIInterface $postTagTypeAPI = null;
 
@@ -30,86 +30,53 @@ class EntryRouteModuleProcessor extends AbstractRESTEntryRouteModuleProcessor
         return $this->postTagTypeAPI ??= $this->instanceManager->getInstance(PostTagTypeAPIInterface::class);
     }
 
-    protected function getInitialRESTFields(): string
-    {
-        return 'id|name|count|url';
-    }
-
     /**
      * @return array<string, array<array>>
      */
-    public function getModulesVarsPropertiesByNature(): array
+    public function getStatePropertiesToSelectComponentByNature(): array
     {
         $ret = array();
         $ret[TagRequestNature::TAG][] = [
-            'module' => [
-                PostTagFieldDataloadModuleProcessor::class,
-                PostTagFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_TAG,
-                [
-                    'fields' => !empty(App::getState('query')) ?
-                        App::getState('query') :
-                        $this->getRESTFields()
-                ]
-            ],
+            'component' => [PostTagFieldDataloadModuleProcessor::class, PostTagFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_TAG],
             'conditions' => [
                 'scheme' => APISchemes::API,
-                'datastructure' => $this->getRestDataStructureFormatter()->getName(),
                 'routing' => [
                     'taxonomy-name' => $this->getPostTagTypeAPI()->getPostTagTaxonomyName(),
                 ],
             ],
         ];
-
         return $ret;
     }
 
     /**
      * @return array<string, array<string, array<array>>>
      */
-    public function getModulesVarsPropertiesByNatureAndRoute(): array
+    public function getStatePropertiesToSelectComponentByNatureAndRoute(): array
     {
         $ret = array();
         /** @var ModuleConfiguration */
         $moduleConfiguration = App::getModule(Module::class)->getConfiguration();
-        $routemodules = array(
-            $moduleConfiguration->getPostTagsRoute() => [
-                PostTagFieldDataloadModuleProcessor::class,
-                PostTagFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_TAGLIST,
-                [
-                    'fields' => !empty(App::getState('query')) ?
-                        App::getState('query') :
-                        $this->getRESTFields()
-                ]
-            ],
+        $routeComponents = array(
+            $moduleConfiguration->getPostTagsRoute() => [PostTagFieldDataloadModuleProcessor::class, PostTagFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_TAGLIST],
         );
-        foreach ($routemodules as $route => $module) {
+        foreach ($routeComponents as $route => $component) {
             $ret[RequestNature::GENERIC][$route][] = [
-                'module' => $module,
+                'component' => $component,
                 'conditions' => [
                     'scheme' => APISchemes::API,
-                    'datastructure' => $this->getRestDataStructureFormatter()->getName(),
                 ],
             ];
         }
         /** @var PostsModuleConfiguration */
         $moduleConfiguration = App::getModule(PostsModule::class)->getConfiguration();
-        $routemodules = array(
-            $moduleConfiguration->getPostsRoute() => [
-                TagPostFieldDataloadModuleProcessor::class,
-                TagPostFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_TAGPOSTLIST,
-                [
-                    'fields' => !empty(App::getState('query')) ?
-                        App::getState('query') :
-                        $this->getRESTFields()
-                    ]
-                ],
+        $routeComponents = array(
+            $moduleConfiguration->getPostsRoute() => [TagPostFieldDataloadModuleProcessor::class, TagPostFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_TAGPOSTLIST],
         );
-        foreach ($routemodules as $route => $module) {
+        foreach ($routeComponents as $route => $component) {
             $ret[TagRequestNature::TAG][$route][] = [
-                'module' => $module,
+                'component' => $component,
                 'conditions' => [
                     'scheme' => APISchemes::API,
-                    'datastructure' => $this->getRestDataStructureFormatter()->getName(),
                     'routing' => [
                         'taxonomy-name' => $this->getPostTagTypeAPI()->getPostTagTaxonomyName(),
                     ],
