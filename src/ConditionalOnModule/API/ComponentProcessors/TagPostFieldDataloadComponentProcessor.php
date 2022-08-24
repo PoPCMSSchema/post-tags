@@ -29,6 +29,7 @@ class TagPostFieldDataloadComponentProcessor extends AbstractRelationalFieldData
     }
     final protected function getPostObjectTypeResolver(): PostObjectTypeResolver
     {
+        /** @var PostObjectTypeResolver */
         return $this->postObjectTypeResolver ??= $this->instanceManager->getInstance(PostObjectTypeResolver::class);
     }
     final public function setListQueryInputOutputHandler(ListQueryInputOutputHandler $listQueryInputOutputHandler): void
@@ -37,9 +38,13 @@ class TagPostFieldDataloadComponentProcessor extends AbstractRelationalFieldData
     }
     final protected function getListQueryInputOutputHandler(): ListQueryInputOutputHandler
     {
+        /** @var ListQueryInputOutputHandler */
         return $this->listQueryInputOutputHandler ??= $this->instanceManager->getInstance(ListQueryInputOutputHandler::class);
     }
 
+    /**
+     * @return string[]
+     */
     public function getComponentNamesToProcess(): array
     {
         return array(
@@ -67,6 +72,10 @@ class TagPostFieldDataloadComponentProcessor extends AbstractRelationalFieldData
         return parent::getQueryInputOutputHandler($component);
     }
 
+    /**
+     * @return array<string,mixed>
+     * @param array<string,mixed> $props
+     */
     protected function getMutableonrequestDataloadQueryArgs(Component $component, array &$props): array
     {
         $ret = parent::getMutableonrequestDataloadQueryArgs($component, $props);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PoPCMSSchema\PostTags\FieldResolvers\ObjectType;
 
+use PoP\ComponentModel\TypeResolvers\ObjectType\ObjectTypeResolverInterface;
 use PoPCMSSchema\PostTags\TypeAPIs\PostTagTypeAPIInterface;
 use PoPCMSSchema\PostTags\TypeResolvers\ObjectType\PostTagObjectTypeResolver;
 use PoPCMSSchema\Tags\FieldResolvers\ObjectType\AbstractCustomPostListTagObjectTypeFieldResolver;
@@ -21,6 +22,7 @@ class CustomPostListPostTagObjectTypeFieldResolver extends AbstractCustomPostLis
     }
     final protected function getPostTagTypeAPI(): PostTagTypeAPIInterface
     {
+        /** @var PostTagTypeAPIInterface */
         return $this->postTagTypeAPI ??= $this->instanceManager->getInstance(PostTagTypeAPIInterface::class);
     }
     final public function setPostTagObjectTypeResolver(PostTagObjectTypeResolver $postTagObjectTypeResolver): void
@@ -29,6 +31,7 @@ class CustomPostListPostTagObjectTypeFieldResolver extends AbstractCustomPostLis
     }
     final protected function getPostTagObjectTypeResolver(): PostTagObjectTypeResolver
     {
+        /** @var PostTagObjectTypeResolver */
         return $this->postTagObjectTypeResolver ??= $this->instanceManager->getInstance(PostTagObjectTypeResolver::class);
     }
 
@@ -50,6 +53,9 @@ class CustomPostListPostTagObjectTypeFieldResolver extends AbstractCustomPostLis
         return false;
     }
 
+    /**
+     * @return array<class-string<ObjectTypeResolverInterface>>
+     */
     public function getObjectTypeResolverClassesToAttachTo(): array
     {
         return [
